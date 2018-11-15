@@ -5,7 +5,7 @@
 #include <functional>
 #include <tuple>
 
-namespace csy
+namespace sy
 {
     #define HAS_MEMBER(member) \
     template<typename T, typename... Args> \

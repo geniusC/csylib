@@ -3,7 +3,7 @@
 #include "trait.h"
 
 
-namespace csy
+namespace sy
 {
     HAS_MEMBER(before)
     HAS_MEMBER(after)    

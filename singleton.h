@@ -3,7 +3,7 @@
 #include <mutex>
 #include <memory>
 
-namespace csy
+namespace sy
 {
     template <typename T>
     class Singleton

@@ -1,5 +1,5 @@
 #pragma once
-namespace csy
+namespace sy
 {
     typedef unsigned int size_t;
 }

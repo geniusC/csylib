@@ -3,7 +3,7 @@
 #include "common.h"
 #include <stdexcept>
 
-namespace csy 
+namespace sy 
 {
     template<typename T>
     class RangeImpl

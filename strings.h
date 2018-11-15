@@ -5,7 +5,7 @@
 #include <sstream>
 #include "trait.h"
 
-namespace csy
+namespace sy
 {
     class Strings
     {

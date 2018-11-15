@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include "trait.h"
 
-namespace csy
+namespace sy
 {
     template<typename... Types>
     class Variant

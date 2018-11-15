@@ -2,7 +2,7 @@
 #include <iostream>
 #include <typeindex>
 
-namespace csy
+namespace sy
 {
     class Any
     {
@@ -84,9 +84,6 @@ namespace csy
                 return new Derived<T>(m_value);
             }
             Derived(const T &value):m_value(value)
-            {
-            }
-            Derived(T &&value):m_value(std::forward<T>(value))
             {
             }
 
