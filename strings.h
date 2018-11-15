@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 #include <sstream>
+#include "trait.h"
 
 namespace csy
 {
@@ -48,4 +49,13 @@ namespace csy
             }
         }
     };
+
+    template<typename T1, typename T2, class = typename std::enable_if<Contains<std::string, T1, T2>::value>::type>
+    std::string operator+(const T1& lhs, const T2& rhs)
+    {
+        std::ostringstream os;
+        os << lhs << rhs;
+        return os.str();
+    }
+
 }
