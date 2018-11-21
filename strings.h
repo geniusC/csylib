@@ -48,6 +48,18 @@ namespace sy
                 container.push_back("");
             }
         }
+
+        static std::string& remove_char(std::string& str, char character)
+        {
+            auto iter = remove_if(str.begin(), str.end(), [character](char ch){return ch == character;});
+            str.erase(iter, str.end());
+            return str;
+        }
+
+        static std::string& trim(std::string& str)
+        {
+            return remove_char(str, ' ');
+        }
     };
 
     template<typename T1, typename T2, class = typename std::enable_if<Contains<std::string, T1, T2>::value>::type>
