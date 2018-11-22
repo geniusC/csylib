@@ -33,8 +33,8 @@ namespace sy
         {
             T* obj = nullptr;
             auto typeName = typeid(T).name();
-            auto bound = m_objects.equal_range(typeName);
-            if(bound.first == m_objects.end())
+            auto bound = m_objects.find(typeName);
+            if(bound == m_objects.end())
             {
                 obj = new T();
                 auto iter = deleters.find(typeName);
@@ -45,13 +45,13 @@ namespace sy
             }
             else
             {
-                obj = static_cast<T*>(bound.first->second);
-                m_objects.erase(bound.first);
+                obj = static_cast<T*>(bound->second);
+                m_objects.erase(bound);
             }
             return std::shared_ptr<T>(obj, 
                     [typeName, this](T *p)
                     {
-                    m_objects.emplace(typeName, p);
+                        m_objects.emplace(typeName, p);
                     });
         }
         ~ObjectPool()
