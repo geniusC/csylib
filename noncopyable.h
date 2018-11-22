@@ -1,11 +1,14 @@
 #pragma once
 
-class NonCopyable
+namespace sy
 {
-public:
-    NonCopyable() = default;
-    ~NonCopyable() = default;
-private:
-    NonCopyable(const NonCopyable&) = delete;
-    NonCopyable& operator=(const NonCopyable&) = delete;
-};
+    class NonCopyable
+    {
+    public:
+        NonCopyable() = default;
+        ~NonCopyable() = default;
+    private:
+        NonCopyable(const NonCopyable&) = delete;
+        NonCopyable& operator=(const NonCopyable&) = delete;
+    };
+}
