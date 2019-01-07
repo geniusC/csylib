@@ -1,6 +1,7 @@
 #pragma once
 namespace sy
 {
-    typedef unsigned int size_t;
+typedef unsigned int size_t;
+
 }
 
