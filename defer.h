@@ -3,7 +3,7 @@
 namespace sy
 {
 #define defer MAKE_DEFER
-#define MAKE_DEFER defer_action DEFER_VAR(__LINE__)
+#define MAKE_DEFER sy::defer_action DEFER_VAR(__LINE__)
 #define DEFER_VAR(line) GENERATE_DEFER_VAR(line)
 #define GENERATE_DEFER_VAR(line) _defer_action_##line##_
 
@@ -12,7 +12,7 @@ struct defer_action
 
     typedef std::function<void()> defer_call;
     explicit defer_action(defer_call&& callback)
-        :m_call(callback)
+        :m_call(std::forward<defer_call>(callback))
     {
     }
     defer_action(defer_action &rhs) = delete;
