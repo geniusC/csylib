@@ -15,3 +15,5 @@ Header only, 引入头文件即可，食用方便。
 6. Any 可存储任意对象类型
 7. Variant 
 8. Range (与python中的range类似)
+9. ThreadPool （future返回值)
+10. String常用操作函数(增强std::string功能)

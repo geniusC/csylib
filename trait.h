@@ -92,10 +92,10 @@ struct function_trait<Ret(Args...)>
     };
 
     template<size_t index, class = typename std::enable_if<index <arity>::type>
-        struct args
-        {
-            using type = typename std::tuple_element<index, std::tuple<Args...>>::type;
-        };
+    struct args
+    {
+        using type = typename std::tuple_element<index, std::tuple<Args...>>::type;
+    };
 };
 
 template<typename Ret, typename... Args>
