@@ -43,7 +43,7 @@ public:
     ThreadPool(ThreadPool&&) = delete;
     ThreadPool& operator=(const ThreadPool&) = delete;
     template<typename Fn, typename ...Arg>
-    auto add(Fn&& fn, Arg&& ...arg) -> std::future<typename std::result_of<Fn(Arg ...)>::type>
+    auto run(Fn&& fn, Arg&& ...arg) -> std::future<typename std::result_of<Fn(Arg ...)>::type>
     {
         using task_type = std::future<typename std::result_of<Fn(Arg ...)>::type>;
         auto task = std::make_shared<std::packaged_task<int()>>(std::bind(std::forward<Fn>(fn), std::forward<Arg>(arg) ...));
