@@ -20,7 +20,7 @@ public:
     {
         for(auto i = 0; i < size; i ++ )
         {
-            workers.emplace_back([this, i]{
+            workers.emplace_back([this]{
                     while(true)
                     {
                         std::function<void()> task;
@@ -45,8 +45,8 @@ public:
     template<typename Fn, typename ...Arg>
     auto run(Fn&& fn, Arg&& ...arg) -> std::future<typename std::result_of<Fn(Arg ...)>::type>
     {
-        using task_type = std::future<typename std::result_of<Fn(Arg ...)>::type>;
-        auto task = std::make_shared<std::packaged_task<int()>>(std::bind(std::forward<Fn>(fn), std::forward<Arg>(arg) ...));
+        using task_type = typename std::result_of<Fn(Arg ...)>::type;
+        auto task = std::make_shared<std::packaged_task<task_type()>>(std::bind(std::forward<Fn>(fn), std::forward<Arg>(arg) ...));
         auto ret = task->get_future();
         {
             std::unique_lock<std::mutex> lock(mtx);
